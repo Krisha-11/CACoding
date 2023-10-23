@@ -23,7 +23,7 @@ public class ClearPresenter implements ClearOutputBoundary {
 
     @Override
     public void openDialogue(ClearOutputData clearOutputData) {
-        String deletedUsers = clearOutputData.getDeletedUser();
+        String deletedUsers = clearOutputData.getDeletedUsers();
         SignupState signupState = signupViewModel.getState();
         signupState.setDeletedUsers(deletedUsers);
         this.signupViewModel.setState(signupState);

@@ -12,12 +12,19 @@ public class ClearOutputData {
 
 //    public List<String> getDeletedUsers() {return deletedUsers;}
 
-    public String getDeletedUser() {
-        String finalDeletedUsers = new String(" ");
+//    public String getDeletedUser() {
+//        String finalDeletedUsers = new String(" ");
+//        for (String s: deletedUsers) {
+//            finalDeletedUsers.concat(s);
+//            finalDeletedUsers = finalDeletedUsers + "\n";
+//        }
+//        return finalDeletedUsers;
+//    }
+    public String getDeletedUsers() {
+        StringBuilder finalDeletedUsers = new StringBuilder();
         for (String s: deletedUsers) {
-            finalDeletedUsers.concat(s);
-            finalDeletedUsers = finalDeletedUsers + "\n";
+            finalDeletedUsers.append(s).append("\n");
         }
-        return finalDeletedUsers;
+        return finalDeletedUsers.toString();
     }
 }
