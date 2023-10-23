@@ -11,7 +11,7 @@ public class SignupState {
     private String repeatPassword = "";
     private String repeatPasswordError = null;
 
-    private List<String> deletedUsers = new ArrayList<>();
+    private String deletedUsers = new String();
     public SignupState(SignupState copy) {
         username = copy.username;
         usernameError = copy.usernameError;
@@ -74,8 +74,8 @@ public class SignupState {
         this.repeatPasswordError = repeatPasswordError;
     }
 
-    public void setDeletedUsers(List<String> delUsers) {this.deletedUsers = delUsers;}
-    public List<String> getDeletedUsers() {return deletedUsers;}
+    public void setDeletedUsers(String delUsers) {this.deletedUsers = delUsers;}
+    public String getDeletedUsers() {return deletedUsers;}
 
     @Override
     public String toString() {

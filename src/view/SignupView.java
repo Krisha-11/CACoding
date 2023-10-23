@@ -88,8 +88,8 @@ public class SignupView extends JPanel implements ActionListener, PropertyChange
                             SignupState currentState = signupViewModel.getState();
                             clearController.execute();
 
-                            List<String> listDeletedUsers = currentState.getDeletedUsers();
-                            JOptionPane.showConfirmDialog(SignupView.this, listDeletedUsers);
+                            String strDeletedUsers = currentState.getDeletedUsers();
+                            JOptionPane.showConfirmDialog(SignupView.this, strDeletedUsers);
 
                         }
                     }

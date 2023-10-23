@@ -10,14 +10,14 @@ public class ClearOutputData {
         this.deletedUsers = deletedUsers;
     }
 
-    public List<String> getDeletedUsers() {return deletedUsers;}
+//    public List<String> getDeletedUsers() {return deletedUsers;}
 
-//    public String getDeletedUser() {
-//        String finalDeletedUsers = new String(" ");
-//        for (String s: deletedUsers) {
-//            finalDeletedUsers.concat(s);
-//            finalDeletedUsers = finalDeletedUsers + "\n";
-//        }
-//        return finalDeletedUsers;
-//    }
+    public String getDeletedUser() {
+        String finalDeletedUsers = new String(" ");
+        for (String s: deletedUsers) {
+            finalDeletedUsers.concat(s);
+            finalDeletedUsers = finalDeletedUsers + "\n";
+        }
+        return finalDeletedUsers;
+    }
 }
