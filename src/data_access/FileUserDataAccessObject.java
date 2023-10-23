@@ -2,16 +2,15 @@ package data_access;
 
 import entity.User;
 import entity.UserFactory;
+import use_case.clear_users.ClearUserDataAccessInterface;
 import use_case.login.LoginUserDataAccessInterface;
 import use_case.signup.SignupUserDataAccessInterface;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
-public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface {
+public class FileUserDataAccessObject implements SignupUserDataAccessInterface, LoginUserDataAccessInterface, ClearUserDataAccessInterface {
 
     private final File csvFile;
 
@@ -83,6 +82,48 @@ public class FileUserDataAccessObject implements SignupUserDataAccessInterface, 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<String> deleteAllUsers() {
+        // Create a list of users that are deleted/ are currently populating the csv file
+        List<String> deletedUsers = new ArrayList<>();
+
+        // Read the csv file and store the data in list deletedUsers
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(csvFile));
+            String line;
+            // headerSkipped = false if header not encountered yet
+            boolean headerSkipped = false;
+            while ((line = reader.readLine()) != null) {
+                // if header encountered, change var to true and skip that line
+                if (!headerSkipped) {
+                    headerSkipped = true;
+                    continue;
+                }
+
+                String[] eachRow = line.split(",");
+                deletedUsers.add(eachRow[0]);
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Clear HashMap 'accounts'
+        accounts.clear();
+
+        // Overwrite csv file with an empty csv file
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(csvFile));
+            writer.write(String.join(",", headers.keySet()));
+            writer.newLine();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return deletedUsers;
     }
 
 

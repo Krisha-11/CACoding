@@ -1,5 +1,8 @@
 package interface_adapter.signup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SignupState {
     private String username = "";
     private String usernameError = null;
@@ -8,6 +11,7 @@ public class SignupState {
     private String repeatPassword = "";
     private String repeatPasswordError = null;
 
+    private List<String> deletedUsers = new ArrayList<>();
     public SignupState(SignupState copy) {
         username = copy.username;
         usernameError = copy.usernameError;
@@ -15,6 +19,7 @@ public class SignupState {
         passwordError = copy.passwordError;
         repeatPassword = copy.repeatPassword;
         repeatPasswordError = copy.repeatPasswordError;
+        deletedUsers = copy.deletedUsers;
     }
 
     // Because of the previous copy constructor, the default constructor must be explicit.
@@ -68,6 +73,9 @@ public class SignupState {
     public void setRepeatPasswordError(String repeatPasswordError) {
         this.repeatPasswordError = repeatPasswordError;
     }
+
+    public void setDeletedUsers(List<String> delUsers) {this.deletedUsers = delUsers;}
+    public List<String> getDeletedUsers() {return deletedUsers;}
 
     @Override
     public String toString() {

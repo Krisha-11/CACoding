@@ -9,6 +9,8 @@ public class SignupController {
     public SignupController(SignupInputBoundary userSignupUseCaseInteractor) {
         this.userSignupUseCaseInteractor = userSignupUseCaseInteractor;
     }
+    // controller takes the input boundary as an input
+    // above is the constructor
 
     public void execute(String username, String password1, String password2) {
         SignupInputData signupInputData = new SignupInputData(
