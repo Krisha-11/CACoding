@@ -1,7 +1,5 @@
 package use_case.clear_users;
 
-// TODO Complete me
-
 import javax.swing.*;
 import java.util.List;
 

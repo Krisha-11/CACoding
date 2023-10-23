@@ -3,7 +3,6 @@ package app;
 import data_access.FileUserDataAccessObject;
 import interface_adapter.clear_users.ClearController;
 import interface_adapter.clear_users.ClearPresenter;
-import interface_adapter.clear_users.ClearViewModel;
 import interface_adapter.login.LoginViewModel;
 import interface_adapter.signup.SignupController;
 import interface_adapter.signup.SignupPresenter;

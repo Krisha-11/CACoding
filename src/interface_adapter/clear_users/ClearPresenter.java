@@ -1,7 +1,5 @@
 package interface_adapter.clear_users;
 
-// TODO Complete me
-
 import interface_adapter.ViewManagerModel;
 import interface_adapter.signup.SignupState;
 import interface_adapter.signup.SignupViewModel;
